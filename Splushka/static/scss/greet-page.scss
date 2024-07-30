@@ -1,0 +1,185 @@
+@import 'null.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Karla:ital,wght@0,200..800;1,200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    background: url('../imgs/background-for-greet-page.png') center right / 1800px auto no-repeat, url('../imgs/backgrond.webp') bottom no-repeat fixed;
+
+    @media screen and (max-width: 1600px) {
+        background: url('../imgs/background-for-greet-page.png') center right / 1500px auto no-repeat, url('../imgs/backgrond.webp') bottom no-repeat fixed;
+    }
+
+    @media screen and (max-width: 1500px) {
+        background: url('../imgs/background-for-greet-page.png') center right / 1000px auto no-repeat, url('../imgs/backgrond.webp') bottom no-repeat fixed;
+    }
+
+    @media screen and (max-width: 1025px) {
+        background: url('../imgs/background-for-greet-page.png') bottom right / 750px auto no-repeat, url('../imgs/backgrond.webp') bottom no-repeat fixed;
+    }
+
+    @media screen and (max-width: 800px) {
+        background: url('../imgs/backgrond.webp') bottom no-repeat fixed;
+    }
+}
+
+.wrapper {
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.336);
+    display: grid;
+    grid-template: 
+        [start] "text" 70% [row-2]
+        [row-2] "buttons" 15% [row-end];
+    min-height: 100vh;
+}
+
+.text {
+    padding: 30px;
+    display: flex;
+    grid-area: text;
+    color: white;
+    flex-flow: column wrap;
+    font-family: Sans;
+    @media screen and (max-width: 768px) {
+        align-items: center;
+        text-align: center;
+    }
+
+    @media screen and (max-width: 370px) {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    &__title {
+        position: relative;
+        top: -50px;
+        opacity: 0;
+        font-weight: 700;
+        font-size: 5rem;
+        overflow: hidden;
+        animation: title-anim 800ms ease 0s 1 alternate forwards;
+
+        @keyframes title-anim {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+                top: 0px
+            }
+        }
+
+        // адаптив брейк-поинты
+        @media screen and (max-width: 768px) {
+            font-size: 4.5rem;
+        }
+
+        @media screen and (max-width: 600px) {
+            font-size: 4.25rem;
+        }
+    }
+
+    &__small-text {
+        position: relative;
+        left: 300px;
+        opacity: 0;
+        animation: text-anim 1.3s ease 0s 1 alternate forwards;
+        padding: 50px 0px;
+        width: 40%;
+        font-size: 4rem;
+
+        @keyframes text-anim {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+                left: 0px
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            font-size: 3rem;
+        }
+        @media screen and (max-width: 600px) {
+            width: 80%;
+            font-size: 2.25rem;
+        }
+        @media screen and (max-width: 370px) {
+            width: 100%;
+            font-size: 2.15rem;
+        }
+    }
+}
+
+.buttons {
+    padding: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    grid-area: buttons;
+
+    @media screen and (max-width: 780px) {
+        align-items: center;
+    }
+
+    &__main-button {
+        
+        button {
+            transition: all 300ms ease;
+            position: relative;
+            color: white;
+            font-weight: 600;
+            font-size: 3.5rem;
+            background: #00ffeea1;
+            border-radius: 8px;
+            box-shadow: 0px 0px 30px #00ffeea1;
+            width: 377px;
+            height: 115px;
+
+
+            @media screen and (max-width: 395px) {
+                width: 277px;
+                height: 85px;
+            }
+
+            &:active {
+                top: 10px;
+            }
+
+            &:hover {
+                transform: translateY(-10px);
+                box-shadow: 0px 1px 30px #00ffeea1;
+            }
+        }
+    }
+
+    &__second-button {
+        padding: 20px 0px;
+        button {
+            transition: all 300ms ease;
+            transform: translateX(100%);
+            font-size: 1.5rem;
+            opacity: 0;
+            border-radius: 10px;
+            color: white;
+            background: black;
+            box-shadow: 0px 0px 20px #00ffee91;
+            width: 377px;
+            height: 47px;
+            animation: button-anim 1s ease 0s 1 alternate forwards;
+
+            @keyframes button-anim {
+
+                100% {
+                    opacity: 1;
+                    transform: translateX(0%);
+                }
+            }
+
+            @media screen and (max-width: 395px) {
+                width: 277px;
+                height: 35px;
+            }
+        }
+    }
+}
+
