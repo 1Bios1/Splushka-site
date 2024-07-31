@@ -77,26 +77,31 @@ input[type=checkbox] {
 
 /*---------------------------------------------------------------*/
 body {
-  background: url("../imgs/background-for-greet-page.png") center right/1800px auto no-repeat, url("../imgs/backgrond.webp") bottom no-repeat fixed;
+  background: url("../imgs/background-for-greet-page.png") center right/1800px auto no-repeat, url("../imgs/background-greet-page.png") top/100% auto no-repeat fixed;
 }
 @media screen and (max-width: 1600px) {
   body {
-    background: url("../imgs/background-for-greet-page.png") center right/1500px auto no-repeat, url("../imgs/backgrond.webp") bottom no-repeat fixed;
+    background: url("../imgs/background-for-greet-page.png") center right/1500px auto no-repeat, url("../imgs/background-greet-page.png") top/100% no-repeat fixed;
   }
 }
 @media screen and (max-width: 1500px) {
   body {
-    background: url("../imgs/background-for-greet-page.png") center right/1000px auto no-repeat, url("../imgs/backgrond.webp") bottom no-repeat fixed;
+    background: url("../imgs/background-for-greet-page.png") bottom right/1000px auto no-repeat, url("../imgs/background-greet-page.png") top/200% no-repeat fixed;
   }
 }
-@media screen and (max-width: 1025px) {
+@media screen and (max-width: 1055px) {
   body {
-    background: url("../imgs/background-for-greet-page.png") bottom right/750px auto no-repeat, url("../imgs/backgrond.webp") bottom no-repeat fixed;
+    background: url("../imgs/background-for-greet-page.png") bottom right/750px auto no-repeat, url("../imgs/background-greet-page.png") top/200% no-repeat fixed;
   }
 }
 @media screen and (max-width: 800px) {
   body {
-    background: url("../imgs/backgrond.webp") bottom no-repeat fixed;
+    background: url("../imgs/background-greet-page.png") top no-repeat fixed;
+  }
+}
+@media screen and (max-width: 400px) {
+  body {
+    background: url("../imgs/background-greet-page.png") top right no-repeat fixed;
   }
 }
 
@@ -104,7 +109,7 @@ body {
   z-index: 10;
   background: rgba(0, 0, 0, 0.336);
   display: grid;
-  grid-template: [start] "text" 70% [row-2] [row-2] "buttons" 15% [row-end];
+  grid-template: [start] "text" 70% [row-2] [row-2] "buttons" 15% "info" [row-end];
   min-height: 100vh;
 }
 
@@ -203,6 +208,29 @@ body {
     align-items: center;
   }
 }
+.buttons__main-button {
+  width: 477px;
+  height: 115px;
+}
+@media screen and (max-width: 1025px) {
+  .buttons__main-button {
+    width: 377px;
+    height: 15px;
+    padding: 30px 0px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .buttons__main-button {
+    width: 377px;
+    height: 35px;
+  }
+}
+@media screen and (max-width: 395px) {
+  .buttons__main-button {
+    width: 277px;
+    height: 35px;
+  }
+}
 .buttons__main-button button {
   transition: all 300ms ease;
   position: relative;
@@ -212,8 +240,13 @@ body {
   background: rgba(0, 255, 238, 0.631372549);
   border-radius: 8px;
   box-shadow: 0px 0px 30px rgba(0, 255, 238, 0.631372549);
-  width: 377px;
+  width: 100%;
   height: 115px;
+}
+@media screen and (max-width: 1025px) {
+  .buttons__main-button button {
+    height: 65px;
+  }
 }
 @media screen and (max-width: 395px) {
   .buttons__main-button button {
@@ -230,6 +263,29 @@ body {
 }
 .buttons__second-button {
   padding: 20px 0px;
+  width: 477px;
+  height: 57px;
+}
+@media screen and (max-width: 1025px) {
+  .buttons__second-button {
+    width: 377px;
+    height: 35px;
+    padding: 40px 0px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .buttons__second-button {
+    width: 377px;
+    height: 35px;
+    padding: 100px 0px;
+  }
+}
+@media screen and (max-width: 395px) {
+  .buttons__second-button {
+    width: 277px;
+    height: 35px;
+    padding: 60px 0px;
+  }
 }
 .buttons__second-button button {
   transition: all 300ms ease;
@@ -240,7 +296,7 @@ body {
   color: white;
   background: black;
   box-shadow: 0px 0px 20px rgba(0, 255, 238, 0.568627451);
-  width: 377px;
+  width: 100%;
   height: 47px;
   animation: button-anim 1s ease 0s 1 alternate forwards;
 }
@@ -255,4 +311,123 @@ body {
     width: 277px;
     height: 35px;
   }
+}
+.buttons__second-button:hover ~ .buttons__information {
+  display: block;
+}
+
+.information {
+  position: relative;
+  grid-area: info;
+  display: none;
+  transform: translateY(-560px);
+}
+.information__container {
+  transition: all 300ms ease;
+  background: rgba(0, 0, 0, 0.445);
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+  width: 400px;
+  left: 20%;
+  position: absolute;
+  padding: 30px;
+}
+@media screen and (max-width: 1280px) {
+  .information__container {
+    left: 300px;
+    top: -100px;
+  }
+}
+@media (max-width: 780px) {
+  .information__container {
+    background: rgba(0, 0, 0, 0.801);
+    text-align: center;
+    left: -200px;
+    top: -200px;
+  }
+}
+@media (max-width: 550px) {
+  .information__container {
+    left: -150px;
+    top: -100px;
+    width: 300px;
+  }
+}
+@media (max-width: 430px) {
+  .information__container {
+    left: -150px;
+    top: -150px;
+    width: 300px;
+  }
+}
+@media (max-width: 390px) {
+  .information__container {
+    left: -125px;
+    top: -80px;
+    width: 250px;
+  }
+}
+.information__title {
+  font-size: 2rem;
+  padding: 30px 0px;
+  text-align: center;
+  color: white;
+}
+.information__text {
+  font-size: 1.3rem;
+  color: white;
+  line-height: 25px;
+  width: 100%;
+}
+@media screen and (max-width: 1280px) {
+  .information__text {
+    line-height: 25px;
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 1025px) {
+  .information__text {
+    line-height: 20px;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 780px) {
+  .information__text {
+    line-height: 20px;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 770px) {
+  .information__text {
+    line-height: 25px;
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 550px) {
+  .information__text {
+    font-size: 1rem;
+    line-height: 20px;
+  }
+}
+@media (max-width: 390px) {
+  .information__text {
+    line-height: 15px;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+}
+.information .text-1 {
+  padding: 10px;
+}
+.information .text-2 {
+  padding: 10px;
+}
+.information .text-3 {
+  padding: 10px;
+}
+.information .text-4 {
+  padding: 10px;
 }
