@@ -104,6 +104,11 @@ body {
     background: url("../imgs/background-greet-page.png") top right no-repeat fixed;
   }
 }
+@media screen and (max-width: 380px) {
+  body {
+    background: url("../imgs/background-greet-page.png") top right no-repeat fixed;
+  }
+}
 
 .wrapper {
   z-index: 10;

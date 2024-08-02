@@ -23,6 +23,9 @@ body {
     @media screen and (max-width: 400px) {
         background: url('../imgs/background-greet-page.png') top right no-repeat fixed;
     }
+    @media screen and (max-width: 380px) {
+        background: url('../imgs/background-greet-page.png') top right no-repeat fixed;
+    }
 }
 
 .wrapper {
