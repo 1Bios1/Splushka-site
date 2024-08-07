@@ -87,8 +87,8 @@ DATABASES = {
         'NAME': 'dbname',
         'USER': 'dbuser',
         'PASSWORD': 'pass',
-        'HOST': 'database',
-        'PORT': '5432',
+        'HOST': 'localhost',
+        'PORT': '5433',
     }
 }
 # Password validation
