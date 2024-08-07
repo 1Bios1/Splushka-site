@@ -1,25 +1,27 @@
 version: '3.8'
 
 services:
-  backend:
+  web-app:
     build:
       context: .
     ports:
-      - "8015:8000"
-    restart: always
-    environment:
-      - DB_HOST=localhost
-      - DB_NAME=postgres
-      - DB_USER=postgres
-      - DB_PASS=postgres
-      - DB_PORT=5433
-
+      - "8000:8000"
+    volumes:
+      - ./service:/service
+    depends_on:
+      - database
     command: sh -c "python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DATABASE_NAME=dbname
+      - DATABASE_USER=dbuser
+      - DATABASE_PASSWORD=pass
+      - DATABASE_HOST=database
 
   database:
     image: postgres:15.0-alpine
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_PORT=5433
+      - POSTGRES_DB=dbname
+      - POSTGRES_USER=dbuser
+      - POSTGRES_PASSWORD=pass
+    ports:
+       - "5433:5432"
